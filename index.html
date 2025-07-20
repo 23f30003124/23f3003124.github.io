@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RetailPro Correlation Result</title>
+</head>
+<body>
+  <h1>Retail Analysis Result</h1>
+  <p><strong>Strongest Correlated Pair:</strong> <span id="pair"></span></p>
+  <p><strong>Correlation Coefficient:</strong> <span id="correlation"></span></p>
+
+  <script>
+    fetch('https://23f3003124.github.io/retail_correlation.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('pair').textContent = data.pair;
+        document.getElementById('correlation').textContent = data.correlation;
+      })
+      .catch(error => {
+        console.error('Error fetching JSON:', error);
+      });
+  </script>
+</body>
+</html>
